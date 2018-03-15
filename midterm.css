@@ -1,0 +1,11 @@
+.nav-bar{
+  float:left;
+  background-color:#F6F6F6;
+  border: 2px solid rgb(219, 245, 255);
+  font: sans-serif;
+  padding-left:15px;
+  padding-right:15px;
+  padding-top:15px;
+  padding-bottom:500px;
+  font:sans-serif;
+}
