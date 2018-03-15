@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head> 
-<link <link rel="stylesheet" href="Wikipedia.css">
+<link <link rel="stylesheet" href="midterm.css">
 	<meta charset="utf-8">
 	<title> Astrud Gilberto</title>
 	</head>
 	<body>
 
-<div class="side-bar">
+<div class="nav-bar">
 <a href="https://en.wikipedia.org/wiki/Main_Page"> <img src="wiki.png" width="150px"></a>
 <br>
 <a href="https://en.wikipedia.org/wiki/Main_Page">Main page</a>
