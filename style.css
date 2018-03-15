@@ -1,0 +1,10 @@
+.nav-bar{
+
+	float: right;
+	border: 2px solid green; 
+}
+
+#footer {
+	clear : both;
+	border: 10px dotted blue;
+}
