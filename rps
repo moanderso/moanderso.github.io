@@ -1,67 +1,82 @@
-<HTML>
-<HEAD><TITLE></TITLE>
-<META http-equiv=Content-Type content="text/html; charset=UTF-8">
-<STYLE type=text/CSS>
-.s{font-size:60px}
-.b{font-size:75px;background-color:##FF4000;height:85px}
-</STYLE>
-<SCRIPT type="text/javascript">
-var p=['Rock','Scissors','Paper',['win','&#10004;'],['lose','&#9760;']]
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width">
 
-function g(n){ document.getElementById('g').innerHTML=p[n]; var cp=[0,1,2]
-    cp.sort(function(a,b){return Math.random()-0.5});
-    r=Math.floor(3*(Math.random()));
-    document.getElementById('i').innerHTML=p[cp[r]];r=cp[r];
-    if(r===n){w(1); return} 
-    else if((r===0 && n===1) || (r===1 && n==2) || (r==2 && n===0)){w(2)}
-    else{w(0)}
+   <title>Rock, Paper, Scissors</title>
 
-}
-function w(w){
-pf=document.getElementById('gam'); pftr=pf.getElementsByTagName('tr');pftd=pf.getElementsByTagName('td');
-    for(b=0;b<3;b++){pftd[b].innerHTML='&nbsp;'} w===1?pftd[w].innerHTML='tie':pftd[w].innerHTML='win'
-}
-</SCRIPT>
-<META content="MSHTML 6.00.2900.2963" name=GENERATOR></HEAD>
-<BODY scroll="auto">
-<OBJECT ID="VoiceObj" CLASSID="clsid:96749377-3391-11D2-9EE3-00C04F797396" ></OBJECT>
-<TABLE BORDER=0 style="height:200px;width:500px;text-align:center;font-size:50px" id="gam">
- <TR>
-  <TD width="33%">  </TD><TD rowspan=2 id="ww">  </TD><TD width="33%" >  </TD>
- </TR>
- <TR>
-  <TD id="g">  </TD><TD id="i">  </TD>
- </TR>
-</TABLE>
-<TABLE BORDER=1 style="border-collapse:collapse" cellpadding=0 >
-<TR>
+   <style>
+      *{margin:0;padding:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}::selection{background:##800000;text-shadow:none}a{color:##47152d;text-decoration:none;outline:0}a:hover{color:##66bfd6}a img{border:none}img{max-width:100%}html{font-size:100%}body{padding:5%;font:300 1.25em/1.6 monospace;background:#fff;color:#000;}h1{font-family:"Helvetica Neue",sans-serif;line-height:1;font-weight:300;margin-bottom:1em;}.game{padding:2em;background:#eee;}
+   </style>
+</head>
+<body>
 
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Player
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;Computer
+<h2>Rock, Paper, Scissors</h2>
 
+<div class="game">
 
-    </TR>
- <TR>
- </Table>
-<hr style="margin:30px">
-<TABLE BORDER=1 style="border-collapse:collapse" cellpadding=0 >
+   <script>
+       // User choice
+       var userChoice = prompt("Do you choose rock, paper or scissors?");
+       if (! userChoice) {
+           // User choice was undefined
+           document.write("<p>Player 1, you cheated! Refresh this screen and fight like a man.</p>");
+       } else {
+           // Display user choice
+           document.write("<p>Player 1:" + " " + userChoice + "</p>");
+       }
+       // Computer choice
+       var computerChoice = Math.random();
+       if (computerChoice < 0.34) {
+           computerChoice = "rock";
+       } else if(computerChoice <= 0.67) {
+           computerChoice = "paper";
+       } else {
+           computerChoice = "scissors";
+       }
+       // Display computer choice
+       document.write("<p>Computer:" + " " + computerChoice + "</p>");
+       // Compare user choice vs computer choice
+       var compare = function(choice1,choice2) {
+           if (choice1 === choice2) {
+               return "It's a tie!";
+           }
+           if (choice1 === "rock") {
+               if (choice2 === "scissors") {
+                   // rock wins
+                   return "You win!";
+               } else {
+                   // paper wins
+                   return "You lose! Try again.";
+               }
+           }
+           if (choice1 === "paper") {
+               if (choice2 === "rock") {
+                   // paper wins
+                   return "You win!";
+               } else {
+                   // scissors wins
+                   return "You lose! Try again.";
+               }
+           }
+           if (choice1 === "scissors") {
+               if (choice2 === "rock") {
+                   // rock wins
+                   return "You lose! Try again.";
+               } else {
+                   // scissors wins
+                   return "You win!";
+               }
+           }
+       };
+       // Run the compare function
+       var results = compare(userChoice,computerChoice);
+       // Display results
+       document.write("<br><hr><br>" + results);
+   </script>
 
-   <TD><input type="button" class="b" value="Paper" onclick="g(2)"></TD>
-  <TD><input type="button" class="b" value="Rock" onclick="g(0)"></TD>
-  <TD><input type="button" class="b" value="Scissors" onclick="g(1)"></TD>
+</div>
 
- </TR>
-</TABLE>
-
-
-
-</BODY></HTML>
+</body>
+</html>
