@@ -173,7 +173,7 @@
 
             if(y==true){
 
-                alert("OKAY! ^^/>");
+                alert("OKAY!");
 
                 location.reload(true);
 
