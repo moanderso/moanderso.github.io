@@ -1,70 +1,228 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+
 <html>
-<head>
-<title> Project 8 </title>
-</head>
-<body>
-<p>Click the button once to change its value</p>
 
-<button id="mybtn1" onclick="myFunction1()">&nbsp;</button>
-<button id="mybtn2" onclick="myFunction2()">&nbsp;</button>
-<button id="mybtn3" onclick="myFunction3()">&nbsp;</button>
-<p style="clear:both"></p>
-<button id="mybtn4" onclick="myFunction1()">&nbsp;</button>
-<button id="mybtn5" onclick="myFunction2()">&nbsp;</button>
-<button id="mybtn6" onclick="myFunction3()">&nbsp;</button>
-<p style="clear:both"></p>
-<button id="mybtn7" onclick="myFunction1()">&nbsp;</button>
-<button id="mybtn8" onclick="myFunction2()">&nbsp;</button>
-<button id="mybtn9" onclick="myFunction3()">&nbsp;</button>
+    <head>
 
-<p></p>
+        <link rel="stylesheet" type="text/css" href="css3.css"/>
 
-<script>
+        <script type="text/javascript">
 
-    var X= document.getElementById("mybtn1").innerHTML;
+ 
 
-function myFunction1() {
-    //var X= document.getElementById("mybtn1").innerHTML;
-    if (X == "&nbsp;") {
-        document.getElementById("mybtn1").innerHTML = "X";
-    }
-    else (X == "X") {
-    document.getElementById("mybtn1").innerHTML = "O";
-    }
-    else if (X == "O") {
-    document.getElementById("mybtn1").innerHTML = "X";
-    } 
-}
+        //Global Variables
 
-function myFunction2() {
-    //var X= document.getElementById("mybtn2").innerHTML;
-    if (X == "&nbsp;") {
-        X="X"
-        document.getElementById("mybtn2").innerHTML = X;
-    }
-    if (X == "X") {
-    document.getElementById("mybtn2").innerHTML = "O";
-    } 
-    if (X == "O") {
-    document.getElementById("mybtn2").innerHTML = "X";
-    } 
-}
+        var painted;
 
-function myFunction3() {
-    //var X= document.getElementById("mybtn3").innerHTML;
-    if (X == "&nbsp;") {
-        document.getElementById("mybtn3").innerHTML = X;
-    }
-    if (X == "X") {
-    document.getElementById("mybtn3").innerHTML = "O";
-    } 
-    if (X == "O") {
-    document.getElementById("mybtn3").innerHTML = "X";
-    } 
-}
-</script>
+        var content;
+
+        var winningCombinations;
+
+        var turn = 0;
+
+        var theCanvas;
+
+        var c;
+
+        var cxt;
+
+        var squaresFilled = 0;
+
+        var w;
+
+        var y;
+
+ 
+
+        //Instanciate Arrays
+
+        window.onload=function(){
+
+             
+
+            painted = new Array();
+
+            content = new Array();
+
+            winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+ 
+
+            for(var l = 0; l <= 8; l++){
+
+            painted[l] = false;
+
+            content[l]='';
+
+            }
+
+        }
+
+ 
+
+        //Game methods
+
+        function canvasClicked(canvasNumber){
+
+            theCanvas = "canvas"+canvasNumber;
+
+            c = document.getElementById(theCanvas);
+
+            cxt = c.getContext("2d");
+
+ 
+
+            if(painted[canvasNumber-1] ==false){
+
+                if(turn%2==0){
+
+                    cxt.beginPath();
 
 
-</body>
+                    cxt.lineTo(40,40);
+
+                    cxt.moveTo(40,10);
+
+                    cxt.lineTo(10,40);
+
+                    cxt.stroke();
+
+                    cxt.closePath();
+
+                    content[canvasNumber-1] = 'X';
+
+                }
+
+ 
+
+                else{
+
+                    cxt.beginPath();
+
+                    cxt.arc(25,25,20,0,Math.PI*2,true);
+
+                    cxt.stroke();
+
+                    cxt.closePath();
+
+                    content[canvasNumber-1] = 'O';
+
+                }
+
+ 
+
+                turn++;
+
+                painted[canvasNumber-1] = true;
+
+                squaresFilled++;
+             checkForWinners(content[canvasNumber-1]);
+
+ 
+
+                if(squaresFilled==9){
+                    alert("THE GAME IS OVER!");
+
+                    location.reload(true);
+
+                }
+
+             
+
+            }
+
+            else{
+
+                alert("THAT SPACE IS ALREADY OCCUPIED WITH YOUR HEART!");
+
+            }
+
+ 
+
+        }
+
+ 
+
+        function checkForWinners(symbol){
+
+             
+
+            for(var a = 0; a < winningCombinations.length; a++){
+
+            if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]== symbol&&content[winningCombinations[a][2]]==symbol){
+
+                alert(symbol+ " WON!");
+
+                playAgain();
+
+            }
+
+            }
+
+ 
+
+        }
+
+ 
+
+        function playAgain(){
+
+            y=confirm("PLAY AGAIN?");
+
+            if(y==true){
+
+                alert("OKAY! ^^/>");
+
+                location.reload(true);
+
+            }
+
+            else{
+
+                alert("SO LONG,SUCKER!");
+
+        }
+
+ 
+
+        }
+
+ 
+
+ 
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div id ="box">
+
+            <h1>THE</h1><h2> VERY BASIC</h2><h3> TIC - TAC - TOE!</h3>
+
+            <canvas id = "canvas1"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(1)"></canvas>
+
+            <canvas id = "canvas2"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(2)"></canvas>
+
+            <canvas id = "canvas3"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(3)"></canvas><br/>
+
+            <canvas id = "canvas4"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(4)"></canvas>
+
+            <canvas id = "canvas5"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(5)"></canvas>
+
+            <canvas id = "canvas6"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(6)"></canvas><br/>
+
+            <canvas id = "canvas7"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(7)"></canvas>
+
+            <canvas id = "canvas8"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(8)"></canvas>
+
+            <canvas id = "canvas9"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(9)"></canvas>
+
+        </div>
+
+    </body>
+
 </html>
+
+    
