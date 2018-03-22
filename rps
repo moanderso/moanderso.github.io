@@ -103,7 +103,7 @@
              checkForWinners(content[canvasNumber-1]);
  
                 if(squaresFilled==9){
-                    alert("THE GAME IS OVER!");
+                    alert("GAME OVER");
 
                     location.reload(true);
 
@@ -113,7 +113,7 @@
 
             else{
 
-                alert("THAT SPACE IS ALREADY OCCUPIED WITH YOUR HEART!");
+                alert("CAN'T DO THAT!");
 
             }
 
@@ -125,7 +125,7 @@
 
             if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]== symbol&&content[winningCombinations[a][2]]==symbol){
 
-                alert(symbol+ " WON!");
+                alert(symbol+ " WON!YAY!");
 
                 playAgain();
 
@@ -147,7 +147,7 @@
 
             else{
 
-                alert("SO LONG,SUCKER!");
+                alert("OKAY");
 
         }
 
@@ -160,7 +160,7 @@
 
         <div id ="box">
 
-            <h1>THE</h1><h2> VERY BASIC</h2><h3> TIC - TAC - TOE!</h3>
+            <h1>THE</h1><h2>MO'S</h2><h3> TIC TAC TOE!</h3>
 
             <canvas id = "canvas1"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(1)"></canvas>
 
