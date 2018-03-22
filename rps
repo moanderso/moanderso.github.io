@@ -3,7 +3,7 @@
 <html>
 003
     <head>
-background="https://media.salon.com/2014/08/guy_fieri.jpg"
+
         <link rel="stylesheet" type="text/css" href="css3.css"/>
 005
         <script type="text/javascript">
@@ -198,8 +198,7 @@ background="https://media.salon.com/2014/08/guy_fieri.jpg"
 100
     </head>
 101
-    <body>
-102
+    <body background="https://media.salon.com/2014/08/guy_fieri.jpg">
         <div id ="box">
 103
             <h1>MO'S</h1><h3> TIC TAC TOE!</h3>
