@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
-
 <html>
-
-    <head>
+<head>
 
         <link rel="stylesheet" type="text/css" href="css3.css"/>
 
@@ -32,12 +30,9 @@
 
         var y;
 
- 
-
         //Instanciate Arrays
 
-        window.onload=function(){
-
+        window.onload=function();
              
 
             painted = new Array();
@@ -45,8 +40,6 @@
             content = new Array();
 
             winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-
- 
 
             for(var l = 0; l <= 8; l++){
 
@@ -58,8 +51,6 @@
 
         }
 
- 
-
         //Game methods
 
         function canvasClicked(canvasNumber){
@@ -70,14 +61,11 @@
 
             cxt = c.getContext("2d");
 
- 
-
             if(painted[canvasNumber-1] ==false){
 
                 if(turn%2==0){
 
                     cxt.beginPath();
-
 
                     cxt.lineTo(40,40);
 
@@ -93,8 +81,6 @@
 
                 }
 
- 
-
                 else{
 
                     cxt.beginPath();
@@ -109,25 +95,19 @@
 
                 }
 
- 
-
                 turn++;
 
                 painted[canvasNumber-1] = true;
 
                 squaresFilled++;
              checkForWinners(content[canvasNumber-1]);
-
  
-
                 if(squaresFilled==9){
                     alert("THE GAME IS OVER!");
 
                     location.reload(true);
 
                 }
-
-             
 
             }
 
@@ -137,15 +117,9 @@
 
             }
 
- 
-
         }
 
- 
-
         function checkForWinners(symbol){
-
-             
 
             for(var a = 0; a < winningCombinations.length; a++){
 
@@ -158,12 +132,7 @@
             }
 
             }
-
- 
-
         }
-
- 
 
         function playAgain(){
 
@@ -174,7 +143,6 @@
                 alert("OKAY! ^^/>");
 
                 location.reload(true);
-
             }
 
             else{
@@ -183,14 +151,7 @@
 
         }
 
- 
-
         }
-
- 
-
- 
-
         </script>
 
     </head>
