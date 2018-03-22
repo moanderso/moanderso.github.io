@@ -3,7 +3,7 @@
 <html>
 003
     <head>
-004
+background="https://media.salon.com/2014/08/guy_fieri.jpg"
         <link rel="stylesheet" type="text/css" href="css3.css"/>
 005
         <script type="text/javascript">
@@ -202,7 +202,7 @@
 102
         <div id ="box">
 103
-            <h1>MO'S</h1><h3> TIC - TAC - TOE!</h3>
+            <h1>MO'S</h1><h3> TIC TAC TOE!</h3>
 104
             <canvas id = "canvas1"  width="50" height="50" style="border:1px solid black" onclick="canvasClicked(1)"></canvas>
 105
